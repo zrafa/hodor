@@ -1,0 +1,93 @@
+Logitech c505
+
+A 2.40
+x=0, y=-236, X'=117, Y'=235, grado=0, distancia=237  distancia-focal:1399.000000 
+x=0, y=-236, X'=116, Y'=235, grado=0, distancia=237  distancia-focal:1400.000000 
+x=0, y=-236, X'=109, Y'=236, grado=0, distancia=238  distancia-focal:1401.000000 
+x=0, y=-236, X'=110, Y'=236, grado=0, distancia=238  distancia-focal:1402.000000 
+x=0, y=-236, X'=108, Y'=236, grado=0, distancia=238  distancia-focal:1403.000000 
+x=0, y=-236, X'=119, Y'=236, grado=0, distancia=238  distancia-focal:1404.000000 
+x=0, y=-237, X'=119, Y'=236, grado=0, distancia=238  distancia-focal:1405.000000 
+x=0, y=-237, X'=107, Y'=237, grado=0, distancia=239  distancia-focal:1406.000000 
+x=0, y=-237, X'=108, Y'=237, grado=0, distancia=239  distancia-focal:1407.000000 
+x=0, y=-237, X'=106, Y'=237, grado=0, distancia=239  distancia-focal:1408.000000 
+x=0, y=-237, X'=108, Y'=237, grado=0, distancia=239  distancia-focal:1409.000000 
+x=0, y=-237, X'=116, Y'=237, grado=0, distancia=239  distancia-focal:1410.000000 
+x=0, y=-238, X'=107, Y'=238, grado=0, distancia=239  distancia-focal:1411.000000 
+x=0, y=-238, X'=105, Y'=238, grado=0, distancia=240  distancia-focal:1412.000000 
+x=0, y=-238, X'=115, Y'=238, grado=0, distancia=240  distancia-focal:1413.000000 
+x=0, y=-238, X'=112, Y'=238, grado=0, distancia=240  distancia-focal:1414.000000 
+x=0, y=-238, X'=118, Y'=238, grado=0, distancia=240  distancia-focal:1415.000000 
+x=0, y=-239, X'=106, Y'=239, grado=0, distancia=240  distancia-focal:1416.000000 
+x=0, y=-239, X'=109, Y'=239, grado=0, distancia=240  distancia-focal:1417.000000 
+x=0, y=-239, X'=106, Y'=239, grado=0, distancia=241  distancia-focal:1418.000000 
+x=0, y=-239, X'=120, Y'=238, grado=0, distancia=240  distancia-focal:1419.000000 
+x=0, y=-239, X'=107, Y'=239, grado=0, distancia=241  distancia-focal:1420.000000 
+x=0, y=-239, X'=109, Y'=239, grado=0, distancia=241  distancia-focal:1421.000000 
+
+
+
+
+A 1.20
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1402.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1403.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1404.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1405.000000 
+x=-4, y=-118, X'=104, Y'=118, grado=-1, distancia=119  distancia-focal:1406.000000 
+x=-4, y=-118, X'=104, Y'=118, grado=-1, distancia=119  distancia-focal:1407.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1408.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1409.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1410.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=119  distancia-focal:1411.000000 
+x=-4, y=-118, X'=103, Y'=118, grado=-1, distancia=120  distancia-focal:1412.000000 
+x=-4, y=-118, X'=102, Y'=119, grado=-1, distancia=120  distancia-focal:1413.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1414.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1415.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1416.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1417.000000 
+x=-4, y=-119, X'=102, Y'=119, grado=-1, distancia=120  distancia-focal:1418.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1419.000000 
+x=-4, y=-119, X'=102, Y'=119, grado=-1, distancia=120  distancia-focal:1420.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1421.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1422.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1423.000000 
+x=-4, y=-119, X'=103, Y'=119, grado=-1, distancia=120  distancia-focal:1424.000000 
+x=-4, y=-119, X'=102, Y'=120, grado=-1, distancia=121  distancia-focal:1425.000000 
+x=-4, y=-120, X'=102, Y'=120, grado=-1, distancia=121  distancia-focal:1426.000000 
+x=-4, y=-120, X'=102, Y'=120, grado=-1, distancia=121  distancia-focal:1427.000000 
+x=-4, y=-120, X'=102, Y'=120, grado=-1, distancia=121  distancia-focal:1428.000000 
+x=-4, y=-120, X'=102, Y'=120, grado=-1, distancia=121  distancia-focal:1429.000000 
+x=-4, y=-120, X'=103, Y'=120, grado=-1, distancia=121  distancia-focal:1430.000000 
+x=-4, y=-120, X'=102, Y'=120, grado=-1, distancia=121^C
+
+
+
+A 3.00
+x=0, y=-295, X'=128, Y'=293, grado=0, distancia=297  distancia-focal:1402.000000 
+x=0, y=-293, X'=148, Y'=289, grado=0, distancia=295  distancia-focal:1403.000000 
+x=0, y=-295, X'=128, Y'=294, grado=0, distancia=297  distancia-focal:1404.000000 
+x=0, y=-296, X'=115, Y'=296, grado=0, distancia=298  distancia-focal:1405.000000 
+x=0, y=-296, X'=116, Y'=296, grado=0, distancia=298  distancia-focal:1406.000000 
+x=0, y=-297, X'=102, Y'=297, grado=0, distancia=299  distancia-focal:1407.000000 
+x=0, y=-297, X'=117, Y'=296, grado=0, distancia=299  distancia-focal:1408.000000 
+x=0, y=-297, X'=100, Y'=297, grado=0, distancia=299  distancia-focal:1409.000000 
+x=0, y=-297, X'=104, Y'=297, grado=0, distancia=299  distancia-focal:1410.000000 
+x=0, y=-297, X'=104, Y'=297, grado=0, distancia=300  distancia-focal:1411.000000 
+x=0, y=-297, X'=118, Y'=297, grado=0, distancia=299  distancia-focal:1412.000000 
+x=0, y=-298, X'=118, Y'=297, grado=0, distancia=300  distancia-focal:1413.000000 
+x=0, y=-297, X'=123, Y'=297, grado=0, distancia=300  distancia-focal:1414.000000 
+x=0, y=-298, X'=116, Y'=297, grado=0, distancia=300  distancia-focal:1415.000000 
+x=0, y=-298, X'=115, Y'=298, grado=0, distancia=300  distancia-focal:1416.000000 
+x=0, y=-298, X'=121, Y'=297, grado=0, distancia=300  distancia-focal:1417.000000 
+x=0, y=-298, X'=117, Y'=298, grado=0, distancia=301  distancia-focal:1418.000000 
+x=0, y=-299, X'=110, Y'=299, grado=0, distancia=301  distancia-focal:1419.000000 
+x=0, y=-299, X'=110, Y'=299, grado=0, distancia=301  distancia-focal:1420.000000 
+x=0, y=-300, X'=109, Y'=299, grado=0, distancia=302  distancia-focal:1421.000000 
+x=0, y=-300, X'=102, Y'=300, grado=0, distancia=302  distancia-focal:1422.000000 
+x=0, y=-300, X'=114, Y'=299, grado=0, distancia=302  distancia-focal:1423.000000 
+x=0, y=-300, X'=111, Y'=300, grado=0, distancia=302  distancia-focal:1424.000000 
+x=0, y=-300, X'=116, Y'=299, grado=0, distancia=302  distancia-focal:1425.000000 
+x=0, y=-300, X'=109, Y'=300, grado=0, distancia=302  distancia-focal:1426.000000 
+x=0, y=-301, X'=111, Y'=300, grado=0, distancia=303  distancia-focal:1427.000000 
+x=0, y=-301, X'=114, Y'=300, grado=0, distancia=303^C
+

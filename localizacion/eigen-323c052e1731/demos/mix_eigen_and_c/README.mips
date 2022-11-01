@@ -1,0 +1,3 @@
+
+mips-openwrt-linux-g++ -c binary_library.cpp -O2  -I ../..
+mips-openwrt-linux-gcc example.c binary_library.o -o example -lstdc++ -lm

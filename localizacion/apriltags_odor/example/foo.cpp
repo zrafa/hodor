@@ -61,12 +61,10 @@ void foo(double m0, double m1, double m2, double m3, double m4, double m5, doubl
 	float r_x =0, r_y=0, r_z=0;
 	Eigen::Vector3d translation;
 	Eigen::Matrix3d m;
-	// Eigen::Vector3f eulerAngle;
 
 	translation << t0, t1, t2;
 	m << (-1)*m0, m1, m2, m3, (-1)*m4, (-1)*m5, (-1)*m6, m7, m8;
 
-	// RAFA std::cout << "matrix:" << m << "\n";
 
 	Eigen::Matrix3d F;
 	F <<
@@ -76,18 +74,14 @@ void foo(double m0, double m1, double m2, double m3, double m4, double m5, doubl
 
 	Eigen::Matrix3d fixed_rot = F*m;
 	double yaw, pitch, roll;
-	// wRo_to_euler(m, yaw, pitch, roll);
 
 	wRo_to_euler(fixed_rot, yaw, pitch, roll);
 
-	// RAFA std::cout   << "  matrix2=" << fixed_rot << "\n";
 
 	double distancia = (translation.norm());
         double x = (translation(0));
         double z = (translation(2));
-        //double X = ((cos(pitch)*translation(0))-(sin(pitch)*translation(2)));
-        //double Y = ((cos(pitch)*translation(1))-(sin(pitch)*translation(2)));
-        //double Z = ((sin(pitch)*translation(0))+(cos(pitch)*translation(2)));
+
 	double *XXX = (double *) malloc(sizeof(double));
 	double *YYY = (double *) malloc(sizeof(double));
 
@@ -97,31 +91,25 @@ void foo(double m0, double m1, double m2, double m3, double m4, double m5, doubl
 	double  r = roll*57.2958;
 	double  grado = asin(t0/distancia) * 57.2958;
 
-	//rotacion((-1)*x, z, XXX, YYY, (pitch*57.2958));
 	rotacion(x, z, XXX, YYY, pitch);
-	//*XXX = (*XXX)*(-1); 
 	int XXXX = *XXX;
-	XXXX = XXXX*(-1) +100;
+	int YYYY = *YYY;
+//	XXXX = XXXX*(-1) +100;
+//	YYYY = YYYY*(-1) -100;
 
-	// RAFA printf("\nXXX=%f,   YYY=%f\n", *XXX, *YYY);
+	printf("x=%i, y=%i, X'=%i, Y'=%i, x-lab=%i, grado=%i, distancia=%i", (int) x, (int) z, (int) XXXX, (int) (*YYY)*(-1), XXXX+390, (int) grado, (int) distancia);
+	int x_map;
+	if (XXXX >= 0)
+		x_map = 430 - XXXX;
+	else
+		x_map = 430 + (-1)*XXXX;
+
+	int y_map = YYYY;
 
 
-	// RAFA std::cout   << "  yaw=" << (yaw*57.2958)  // convertido de radianes a grados
-         // RAFA << ", pitch=" << (pitch*57.2958)
-         // RAFA << ", roll=" << (roll*57.2958) << "\n";
-
-	// RAFA std::cout << "  distance=" << (translation.norm()*100) // convertido a centimentros
-         // RAFA << " cm, "
-         // RAFA << "\n"
-         // RAFA << "  x=" << (translation(0)*100)
-         // RAFA << ", y=" << (translation(1)*100)
-         // RAFA << ", z=" << (translation(2)*100)
-         // RAFA << "\n";
-
-	// *YYY *= (-1);
-	// *XXX += 50;
-	//printf("x=%i, y=%i, X'=%i, Y'=%i, X_TAG=%i, distancia=%i", (int) x, (int) z, (int) (*XXX)+100, (int) (*YYY)*(-1), (int) grado, (int) distancia);
-	printf("x=%i, y=%i, X'=%i, Y'=%i, grado=%i, distancia=%i", (int) x, (int) z, (int) XXXX, (int) (*YYY)*(-1), (int) grado, (int) distancia);
+// //	printf("x=%i, y=%i, X'=%i, Y'=%i, grado=%i, distancia=%i", (int) x, (int) z, (int) XXXX, (int) (*YYY)*(-1), (int) grado, (int) distancia);
+	
+	// printf("x=%i, y=%i, x_map'=%i, y_map=%i, XXXX=%i, YYYY=%i, grado=%i, distancia=%i", (int) x, (int) z, x_map, y_map, XXXX, YYYY, (int) grado, (int) distancia);
 
 	free(XXX);
 	free(YYY);

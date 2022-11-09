@@ -1,0 +1,46 @@
+Mapa del lab de robotica
+
+8,40 mts de alto
+4,80 mts de ancho
+
+
+Con la ubicación del TAG como se muestra en la figura:
+- El eje x reportado por apriltag es hacia lo alto
+- El eje y reportado por apriltag es hacia lo ancho
+
+
+.puerta ..............................................
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.  <==     4,80mts de ancho  ==>                     .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                 TAG.
+.                                                 TAG.
+.                                                 TAG.
+.                                           ^        .
+.                                           |        .
+.                                           |        .
+.                                   8,40mts alto     .
+.                                           |        .
+.                                           |        .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.                                                    .
+.....ventanal......ventanal.....ventanal..............

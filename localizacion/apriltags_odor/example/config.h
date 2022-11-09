@@ -25,5 +25,5 @@
 //#define FOCAL_FY 390	/* lo obtuvo Ale 816 */
 //#define TAGSIZE 0.054	/* en centimetros */
 //#define TAGSIZE 16.1	/* en centimetros */
-#define TAGSIZE 15	/* en centimetros */
+#define TAGSIZE 20	/* en centimetros */
 // #define TAGSIZE 5.4	/* en centimetros */

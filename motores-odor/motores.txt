@@ -1,0 +1,23 @@
+
+
+echo -en X '\x00\x00' >> /dev/ttyACM0 
+echo -en X '\x00\x00' >> /dev/ttyACM0 
+echo -en X '\x00\x04' >> /dev/ttyACM0 
+echo -en  '\x00\x04' >> /dev/ttyACM0 
+echo -en  '\x00\x04' >> /dev/ttyACM0 
+echo -en  X '\x00\x04' >> /dev/ttyACM0 
+echo -en X '\xFF\xFF' >> /dev/ttyACM0 
+echo -en X '\x04\xFF' >> /dev/ttyACM0 
+echo -en X'\x04\xFF' >> /dev/ttyACM0 
+echo -en X'\xFF\xFF' >> /dev/ttyACM0 
+
+Velocidad reversa 
+echo -en X'\xAF\xAF' >> /dev/ttyACM0 
+echo -en X'\xA0\xA0' >> /dev/ttyACM0 
+
+Velocidad reversa rapida:
+echo -en X'\x90\x90' >> /dev/ttyACM0 
+
+stop:
+echo -en X'\x00\x00' >> /dev/ttyACM0 
+

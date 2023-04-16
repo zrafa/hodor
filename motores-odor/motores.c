@@ -57,10 +57,12 @@ void motores(int8_t vel_1, int8_t vel_2)
 	
 	/* motor 2 */
 	if (vel_2 == 0) {		/* stop */
+		serial_put_str("motor 2 stop");
 		OCR2A = 0;
 		PORTB &=  (~((1 << PB2) | (1 << PB4)));
 
 	} else if (vel_2 < 0) {		/* reversa */
+		serial_put_str("motor 2 reversa");
 
 		/* comparador desde 128 */
 		OCR2A = (vel_2 * (-1)) + 127;
@@ -69,6 +71,7 @@ void motores(int8_t vel_1, int8_t vel_2)
 		PORTB |= (1 << PB4);
 
 	} else {			/* adelante */
+		serial_put_str("motor 2 adelante");
 
 		OCR2A = vel_2 + 127;
 		PORTB |= (1 << PB3);
@@ -125,9 +128,8 @@ int main(void)
 
 		v1 = (int8_t) serial_get_char();
 		v2 = (int8_t) serial_get_char();
+		motores(v1, v2);
 		sprintf(s, "v1: %i, v2: %i \n", v1, v2);
 		serial_put_str(s);
-		motores(v1, v2);
-		_delay_ms(200);
 	}
 }

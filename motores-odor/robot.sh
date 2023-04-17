@@ -61,21 +61,25 @@ declare -i velizq
 declare -i velder
 declare -i velizqA	# vel izq atras
 declare -i velderA	# vel der atras
-velizq=30
-velder=30
-velizqA=(128-velizq)+128
+velizq=120
+velder=95
+#velizqA=(128-velizq)+128
+velizqA=(velizq)+128
 if [[ velizqA -lt 128 ]]; then
 	velizqA=128
 elif [[ velizqA -lt 255 ]]; then
 	velizqA=255
 fi
+velizqA=128
 
-velderA=(128-velder)+128
+#velderA=(128-velder)+128
+velderA=(velder)+128
 if [[ velderA -lt 128 ]]; then
 	velderA=128
 elif [[ velderA -lt 255 ]]; then
 	velderA=255
 fi
+velderA=128+25
 
 while true; do 
 

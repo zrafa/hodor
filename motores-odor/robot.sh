@@ -30,22 +30,22 @@ function motores {
 
 function adelante {
 	echo $0
-	motores velizq velder
+	motores velder velizq
 }
 
 function atras {
 	echo $0
-	motores velizqA velderA
-}
-
-function izquierda {
-	echo $0
-	motores velizqA velder
+	motores velderA velizqA
 }
 
 function derecha {
 	echo $0
-	motores velizq velderA
+	motores vel_giro_der_i vel_giro_der_d
+}
+
+function izquierda {
+	echo $0
+	motores vel_giro_izq_i vel_giro_izq_d
 }
 
 function stop {
@@ -61,29 +61,26 @@ declare -i velizq
 declare -i velder
 declare -i velizqA	# vel izq atras
 declare -i velderA	# vel der atras
-velizq=120
-velder=95
-#velizqA=(128-velizq)+128
-velizqA=(velizq)+128
-if [[ velizqA -lt 128 ]]; then
-	velizqA=128
-elif [[ velizqA -lt 255 ]]; then
-	velizqA=255
-fi
-velizqA=128
+declare -i vel_giro_izq_i	# vel giro izq 
+declare -i vel_giro_izq_d	# vel giro der 
+declare -i vel_giro_der_i	# vel giro izq 
+declare -i vel_giro_der_d	# vel giro der 
+velderA=127
+velizqA=127-15
 
-#velderA=(128-velder)+128
-velderA=(velder)+128
-if [[ velderA -lt 128 ]]; then
-	velderA=128
-elif [[ velderA -lt 255 ]]; then
-	velderA=255
-fi
-velderA=128+25
+velder=128
+velizq=128+25
+
+vel_giro_der_i=127-90
+vel_giro_der_d=128+90
+
+vel_giro_izq_i=128+25+50
+vel_giro_izq_d=127-25-50
+
 
 while true; do 
 
-	echo "teclas: a,s (izq, der) i,j (adelante, atras), x salir"
+	echo "teclas: b (stop), a,d (izq, der) w,s (adelante, atras), x salir"
 read -n 1 c
 
 echo $c
@@ -94,11 +91,11 @@ fi
 
 if [[ "$c" == "a" ]]; then
 	izquierda
-elif [[ "$c" == "s" ]]; then
+elif [[ "$c" == "d" ]]; then
 	derecha
-elif [[ "$c" == "i" ]]; then
+elif [[ "$c" == "w" ]]; then
 	adelante
-elif [[ "$c" == "j" ]]; then
+elif [[ "$c" == "s" ]]; then
 	atras
 elif [[ "$c" == "b" ]]; then
 	stop

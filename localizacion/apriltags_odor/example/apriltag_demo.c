@@ -304,6 +304,7 @@ int main(int argc, char *argv[])
 
 		// FIN RAFA
 
+	fflush(0);
 
 
 

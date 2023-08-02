@@ -97,7 +97,8 @@ void foo(double m0, double m1, double m2, double m3, double m4, double m5, doubl
 //	XXXX = XXXX*(-1) +100;
 //	YYYY = YYYY*(-1) -100;
 
-	printf("x=%i, y=%i, X'=%i, Y'=%i, x-lab=%i, grado=%i, distancia=%i", (int) x, (int) z, (int) XXXX, (int) (*YYY)*(-1), XXXX+390, (int) grado, (int) distancia);
+	printf("x=%i, y=%i, X'=%i, Y'=%i, x-lab=%i, grado=%i, distance=%i\n", (int) x, (int) z, (int) XXXX, (int) (*YYY)*(-1), XXXX+390, (int) grado, (int) distancia);
+	printf("%i,%i, grado=%i, distancia=%i\n", XXXX+390, (int) (*YYY)*(-1), (int) grado, (int) distancia);
 	int x_map;
 	if (XXXX >= 0)
 		x_map = 430 - XXXX;

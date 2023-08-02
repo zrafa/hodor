@@ -154,6 +154,7 @@ int main(int argc, char *argv[])
 
 	pjpeg_t *pjpeg = pjpeg_create_from_buffer(jpegbuffer_start, size_yuv_to_jpeg, 0, &err);
 	// QUITAR rawWrite(jpegbuffer_start, size_yuv_to_jpeg, "salida2");
+	rawWrite(jpegbuffer_start, size_yuv_to_jpeg, "/tmp/foto.jpg");
 	// pjpeg_t *pjpeg = pjpeg_create_from_buffer(buffer_start, jpegsize(), 0, &err);
 	if (pjpeg == NULL) {
 		printf("pjpeg error %d\n", err);

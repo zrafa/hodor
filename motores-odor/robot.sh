@@ -1,6 +1,18 @@
+#!/bin/bash
+
+
 
 DEV=/dev/ttyACM0
+
+killall cat
+
+sleep 1
+
 stty -F $DEV speed 9600
+
+
+cat /dev/ttyACM0 &
+
 
 
 function motores {
@@ -66,10 +78,10 @@ declare -i vel_giro_izq_d	# vel giro der
 declare -i vel_giro_der_i	# vel giro izq 
 declare -i vel_giro_der_d	# vel giro der 
 velderA=127
-velizqA=127-15
+velizqA=127-30
 
 velder=128
-velizq=128+25
+velizq=128+30
 
 vel_giro_der_i=127-90
 vel_giro_der_d=128+90

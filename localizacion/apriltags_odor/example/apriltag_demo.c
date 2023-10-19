@@ -63,12 +63,103 @@ either expressed or implied, of the Regents of The University of Michigan.
 #include "v4l2.h"
 
 
+
+int servo_get_angulo(void)
+{
+  int angulo;
+  FILE* ptr;
+  char str[50];
+
+  /* Open the command for reading. */
+
+  /* enviamos la solicitud de angulo */
+  system("echo g > /dev/ttyUSB0");
+
+  ptr = fopen("/dev/ttyUSB0", "r");
+
+  if (NULL == ptr) {
+        printf("file can't be opened \n");
+  }
+
+  int i = 0;
+  str[i]=fgetc(ptr);
+  while ( str[i] != '\n') {
+	i++;
+    	str[i]=fgetc(ptr);
+  }
+  str[i]='\0';
+
+  fclose(ptr);
+
+  angulo = atoi(str);
+  return angulo;
+
+}
+
+
+int servo_i = 40;
+int primer = 1;
+void servo_buscar(void)
+{
+  int angulo;
+      FILE* ptr;
+    char str[50];
+
+  /* Open the command for reading. */
+
+    /*
+	system("echo g > /dev/ttyUSB0");
+    ptr = fopen("/dev/ttyUSB0", "r");
+
+    if (NULL == ptr) {
+        printf("file can't be opened \n");
+    }
+
+    int i = 0;
+    str[i]=fgetc(ptr);
+    while ( str[i] != '\n') {
+	i++;
+    	str[i]=fgetc(ptr);
+    }
+    str[i]='\0';
+
+    fclose(ptr);
+
+    angulo = atoi(str);
+    */
+    angulo = servo_get_angulo();
+    
+
+
+    //printf("angulo : %i\n", angulo);
+    if (angulo > 300)
+	    servo_i = -40;
+    else if ((angulo <= 40) && (angulo > 0))
+	    servo_i = 40;
+
+    if (angulo != 0) {
+    if (servo_i == -40)
+	system("echo d40 > /dev/ttyUSB0");
+    else
+	system("echo i40 > /dev/ttyUSB0");
+    }
+	
+    if (angulo == 0)
+	    system("echo i5 > /dev/ttyUSB0");
+    //sleep(1);
+
+  /* close */
+}	
+
 // Invoke:
 //
 // tagtest [options] input.pnm
 
 int main(int argc, char *argv[])
 {
+	int unico = 0;
+	int chance = 0;
+
     getopt_t *getopt = getopt_create();
 
     getopt_add_bool(getopt, 'h', "help", 0, "Show this help");
@@ -138,6 +229,8 @@ int main(int argc, char *argv[])
     // RAFA while (1) {
     
 //	double focal_rafa = 1400;
+//
+	int i;
 	
     while(1) {
 // RAFA  	c = 0;
@@ -147,6 +240,7 @@ int main(int argc, char *argv[])
 	mainloop();
 
 	int size_yuv_to_jpeg;
+
 
 	int err = 0;
 
@@ -252,7 +346,7 @@ int main(int argc, char *argv[])
 
             zarray_t *detections = apriltag_detector_detect(td, im);
 
-            for (int i = 0; i < zarray_size(detections); i++) {
+            for (i = 0; i < zarray_size(detections); i++) {
                 apriltag_detection_t *det;
                 zarray_get(detections, i, &det);
 
@@ -305,7 +399,7 @@ int main(int argc, char *argv[])
 
 		// FIN RAFA
 
-	fflush(0);
+		fflush(0);
 
 
 
@@ -314,14 +408,14 @@ int main(int argc, char *argv[])
         // RAFA printf("Summary 4\n");
             apriltag_detections_destroy(detections);
 
-            if (!quiet) {
-                timeprofile_display(td->tp);
-            }
+          //  if (!quiet) {
+           //     timeprofile_display(td->tp);
+            //}
 
             total_quads += td->nquads;
 
-            if (!quiet)
-                printf("hamm ");
+          //  if (!quiet)
+           //     printf("hamm ");
 
             // RAFAfor (int i = 0; i < hamm_hist_max; i++)
                 // RAFA printf("%5d ", hamm_hist[i]);
@@ -336,6 +430,30 @@ int main(int argc, char *argv[])
         // RAFA printf("Summary 3\n");
             // RAFA image_u8_destroy(im);
         }
+	    if (i==0) {
+		    unico = 1;
+		    chance++;
+		    if (chance > 2) {
+		    	servo_buscar(); 
+			chance = 0;
+		    }
+	    } else {
+		    /*
+		    if (unico) {
+	    		if (servo_i == -40)
+				system("echo i40 > /dev/ttyUSB0");
+			else
+				system("echo d40 > /dev/ttyUSB0");
+		    	sleep(5);
+		    	unico = 0;
+		    }
+		    */
+		    //printf("i ES DISINTO! \n");
+		    printf("servo_angulo=%i \n", servo_get_angulo());
+	    }
+
+	    // system("echo i40 > /dev/ttyUSB0");
+	    //if (i==0) system("echo i40 > /dev/ttyUSB0");
 
 
            // RAFA image_u8_destroy(im);

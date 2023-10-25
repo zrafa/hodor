@@ -4,7 +4,54 @@
 #include <SDL2/SDL_timer.h>
 #include <unistd.h>
  
+
+
+
+
 enum colores {rojo, verde, azul};
+
+void dot(SDL_Renderer* rend, int x, int y, enum colores c);
+
+// DDA Function for line generation 
+void draw_line(SDL_Renderer *rend, int X0, int Y0, int X1, int Y1) 
+{ 
+    // calculate dx & dy 
+    int dx = X1 - X0; 
+    int dy = Y1 - Y0; 
+  
+    // calculate steps required for generating pixels 
+    int steps = abs(dx) > abs(dy) ? abs(dx) : abs(dy); 
+  
+    // calculate increment in x & y for each steps 
+    float Xinc = dx / (float)steps; 
+    float Yinc = dy / (float)steps; 
+  
+    // Put pixel for each step 
+    float X = X0; 
+    float Y = Y0; 
+    for (int i = 0; i <= steps; i++) { 
+  	dot(rend, (int) X, (int) Y, azul);
+        //putpixel(round(X), round(Y), 
+                 //RED); // put pixel at (X,Y) 
+        X += Xinc; // increment in x at each step 
+        Y += Yinc; // increment in y at each step 
+    } 
+} 
+
+
+void mostrar_orientacion(SDL_Renderer* rend, int x, int y, int angle, int r)
+{
+	double x1, y1;
+	double PI=3.1415926535;
+
+            x1 = r * cos(angle * PI / 180);
+            y1 = r * sin(angle * PI / 180);
+		draw_line(rend, x, y, x+x1, y+y1);
+		draw_line(rend, x+1, y, x+1+x1, y+y1);
+		draw_line(rend, x-1, y, x-1+x1, y+y1);
+		draw_line(rend, x, y+1, x+x1, y+1+y1);
+		draw_line(rend, x, y-1, x+x1, y-1+y1);
+}
 
 void dot(SDL_Renderer* rend, int x, int y, enum colores c)
 {
@@ -22,6 +69,21 @@ void dot(SDL_Renderer* rend, int x, int y, enum colores c)
 		SDL_SetRenderDrawColor(rend, 0, 0, 255, SDL_ALPHA_OPAQUE);
 
 	SDL_RenderFillRect(rend, &r );
+
+}
+
+void cruz (SDL_Renderer* rend, int x, int y, enum colores c) 
+{
+	dot(rend, x, y, rojo);
+	dot(rend, x-1, y, rojo);
+	dot(rend, x-2, y, rojo);
+	dot(rend, x+1, y, rojo);
+	dot(rend, x+2, y, rojo);
+	dot(rend, x, y-1, rojo);
+	dot(rend, x, y-2, rojo);
+	dot(rend, x, y+1, rojo);
+	dot(rend, x, y+2, rojo);
+
 
 }
 
@@ -43,11 +105,22 @@ void dibujar_obstaculo(SDL_Renderer* rend, int angulo, int radio)
 }
 
 
+int calcular_orientacion_global(int angulo_servo, int hipotenusa, int cateto)
+{
+	double PI = 3.14159265358979323846;
+	double coseno_alfa = (double) cateto / (double) hipotenusa;
+	double radianes = acos(coseno_alfa);
+	int angulo_triang_rectangulo = radianes * (double) 180 / PI;
+	int angulo_global = 360 - (angulo_servo - 180 + angulo_triang_rectangulo);
+	return angulo_global;
+}
+
 
 int main(int argc, char *argv[])
 {
  
 	int x2,y2;
+	int angulo_tag, servo_angulo, distancia, orientacion_global;
 
     // retutns zero on success else non-zero
     if (SDL_Init(SDL_INIT_EVERYTHING) != 0) {
@@ -70,7 +143,7 @@ int main(int argc, char *argv[])
     SDL_Surface* surface;
  
     // please provide a path for your image
-    surface = IMG_Load("axis.bmp");
+    surface = IMG_Load("axis3.bmp");
  
     // loads image to our graphics hardware memory.
     SDL_Texture* tex = SDL_CreateTextureFromSurface(rend, surface);
@@ -187,15 +260,35 @@ int main(int argc, char *argv[])
 
 	*(line+3)=0;
 	x2=atoi(line);
+	*(line+7)=0;
 	y2=atoi((line+4));
 
+	*(line+19)=0;
+	angulo_tag=atoi((line+15));
+
+	*(line+35)=0;
+	distancia=atoi((line+31));
+
+	*(line+53)=0;
+	servo_angulo=atoi((line+50));
+	
+	orientacion_global = calcular_orientacion_global(servo_angulo+angulo_tag, distancia, y2);
+	printf("orientacion global (grados) = %i \n", orientacion_global);
+
 	frotate=0.02;
-	printf("%f grados:%i, distancia:%i\n", frotate, grados, dist);
+	printf("%f grados:%i, distancia:%i, servo angulo:%i\n", frotate, angulo_tag, distancia, servo_angulo);
 
 	//if (grados == 0)
 		SDL_RenderCopyEx(rend, tex, NULL, NULL, frotate, NULL, SDL_FLIP_NONE);
-	dot(rend, 800-x2, y2, rojo);
+	mostrar_orientacion(rend, 800-x2,y2, orientacion_global-90, 30);
+	cruz(rend, 800-x2, y2, rojo);
+
+
+	printf("x: %i, y: %i \n", 800-x2, y2);
 //	dibujar_obstaculo(rend, grados, dist);
+
+//	mostrar_orientacion(rend, 100,100, 90-90, 30);
+//	mostrar_orientacion(rend, 100,100, 180-90, 30);
  
         // triggers the double buffers
         // for multiple rendering

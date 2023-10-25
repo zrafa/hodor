@@ -449,7 +449,7 @@ int main(int argc, char *argv[])
 		    }
 		    */
 		    //printf("i ES DISINTO! \n");
-		    printf("servo_angulo=%i \n", servo_get_angulo());
+		    printf("servo_angulo=%03i \n", servo_get_angulo());
 	    }
 
 	    // system("echo i40 > /dev/ttyUSB0");

@@ -112,10 +112,15 @@ int calcular_orientacion_global(int angulo_servo, int hipotenusa, int cateto, in
 	double radianes = acos(coseno_alfa);
 	int angulo_triang_rectangulo = radianes * (double) 180 / PI;
 	int angulo_global;
+	double theta;
+	/* alfa = angulo del servo - 180 */
+	/* beta = angulo_triang_rectangulo */
 	if (x<390) 
-		angulo_global = 360 - (angulo_servo - 180 - angulo_triang_rectangulo);
+		theta = (angulo_servo - 180 - angulo_triang_rectangulo);
 	else
-		angulo_global = 360 - (angulo_servo - 180 + angulo_triang_rectangulo);
+		theta = (angulo_servo - 180 + angulo_triang_rectangulo);
+
+	angulo_global = 360 - theta;
 	return angulo_global;
 }
 

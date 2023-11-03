@@ -112,13 +112,10 @@ int calcular_orientacion_global(int angulo_servo, int hipotenusa, int cateto, in
 	double radianes = acos(coseno_alfa);
 	int angulo_triang_rectangulo = radianes * (double) 180 / PI;
 	int angulo_global;
-//	if (angulo_servo < 180)
 	if (x<390) 
 		angulo_global = 360 - (angulo_servo - 180 - angulo_triang_rectangulo);
 	else
 		angulo_global = 360 - (angulo_servo - 180 + angulo_triang_rectangulo);
-//	else 
-//		angulo_global = 360 - (180 - angulo_servo + angulo_triang_rectangulo);
 	return angulo_global;
 }
 
@@ -285,20 +282,12 @@ int main(int argc, char *argv[])
 	frotate=0.02;
 	printf("%f grados:%i, distancia:%i, servo angulo:%i\n", frotate, angulo_tag, distancia, servo_angulo);
 
-	//if (grados == 0)
 		SDL_RenderCopyEx(rend, tex, NULL, NULL, frotate, NULL, SDL_FLIP_NONE);
-//	if ((800-x2)<390) 
-//		mostrar_orientacion(rend, 800-x2,y2, orientacion_global+90, 30);
-//	else 
 		mostrar_orientacion(rend, 800-x2,y2, orientacion_global-90, 30);
 	cruz(rend, 800-x2, y2, rojo);
 
 
 	printf("x: %i, y: %i \n", 800-x2, y2);
-//	dibujar_obstaculo(rend, grados, dist);
-
-//	mostrar_orientacion(rend, 100,100, 90-90, 30);
-//	mostrar_orientacion(rend, 100,100, 180-90, 30);
  
         // triggers the double buffers
         // for multiple rendering

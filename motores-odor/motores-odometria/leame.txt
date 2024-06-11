@@ -1,0 +1,19 @@
+
+Por ahora estaría esta propuesta de los pines del arduino nano a utilizar:
+
+
+Entrada para las interrupciones de los dos encoders (viene del código de Cande)
+PB0
+PD7
+
+Control de Motores:
+
+PD3 OC2B señal pwm para motor0
+PD4 io digital para motor0 
+PD5 io digital para motor0
+
+
+PB3 OC2A señal pwm para motor1
+PB2 io digital para motor1
+PB4 io digital para motor1
+
